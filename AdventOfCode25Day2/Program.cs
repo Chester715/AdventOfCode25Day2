@@ -23,12 +23,12 @@ namespace AdventOfCode25Day2
                 DashPos = AllIDs.IndexOf("-");
                 CommaPos = AllIDs.IndexOf(",");
                 // Console.WriteLine($"{DashPos}, {CommaPos}");
-                Num1 = BigInteger.Parse(AllIDs.Substring(0, DashPos));            
+                Num1 = BigInteger.Parse(AllIDs.Substring(0, DashPos));
                 if (CommaPos == -1)
                 {
                     StringEnd = true;
                     Num2 = BigInteger.Parse(AllIDs.Substring(DashPos + 1));
-                } 
+                }
                 else
                 {
                     Num2 = BigInteger.Parse(AllIDs.Substring(DashPos + 1, CommaPos - (DashPos + 1)));
@@ -36,26 +36,21 @@ namespace AdventOfCode25Day2
                 }
                 // Console.WriteLine($"Num1 is {Num1}, Num2 is {Num2}");
 
-               // finding the IDs
-               for (BigInteger i = Num1; i <= Num2; i++)
+                // finding the IDs
+                for (BigInteger i = Num1; i <= Num2; i++)
                 {
                     NumAsString = Convert.ToString(i);
                     NumLength = NumAsString.Length;
                     if (NumLength % 2 == 0)
                     {
                         // 4545 
-                        if (NumAsString.Substring(0, (NumLength / 2) - 1) == NumAsString.Substring(NumLength / 2))
+                        if (NumAsString.Substring(0, NumLength / 2) == NumAsString.Substring(NumLength / 2))
                         {
                             Console.WriteLine($"Invalid for {i}");
                             SumInvalidIDs += i;
                         }
                     }
                 }
-
-
-
-                StringEnd = true;
-
             }
             Console.WriteLine(SumInvalidIDs);
         }
