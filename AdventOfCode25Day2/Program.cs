@@ -131,6 +131,7 @@ namespace AdventOfCode25Day2
                                 Console.WriteLine($"We have found {i} to be invalid because {NumAsString.Substring(0, FactorPairs[j][0])} does not equal {NumAsString.Substring(n, FactorPairs[j][0])} ");
                                 Invalid = false;
                                 // Even if it is invalid for one combination it makes it valid if not all combinations work
+                                // so we create a temporary validity variable. If after the first or second loop it is still classed as invalid, Invalid = true
                             }
                         } // Checking 2nd factor iterations of 1st factor
                         for (int n = FactorPairs[j][1]; n < NumLength; n += FactorPairs[j][1])
