@@ -85,7 +85,7 @@ namespace AdventOfCode25Day2
             int Limit = 0;
             bool Invalid = false;
             int test = 0;
-            while (StringEnd == false && test < 5)
+            while (StringEnd == false && test < 1)
             {
                 test++;
                 // Getting the values out of the string
@@ -128,7 +128,9 @@ namespace AdventOfCode25Day2
                             if (NumAsString.Substring(0, FactorPairs[j][0]) != NumAsString.Substring(n, FactorPairs[j][0]))
                             {
                                 //        Console.WriteLine($"Invalid for {i}");
+                                Console.WriteLine($"We have found {i} to be invalid because {NumAsString.Substring(0, FactorPairs[j][0])} does not equal {NumAsString.Substring(n, FactorPairs[j][0])} ");
                                 Invalid = false;
+                                // Even if it is invalid for one combination it makes it valid if not all combinations work
                             }
                         } // Checking 2nd factor iterations of 1st factor
                         for (int n = FactorPairs[j][1]; n < NumLength; n += FactorPairs[j][1])
